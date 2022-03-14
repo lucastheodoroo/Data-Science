@@ -90,7 +90,7 @@
 										<a href="#" class="author"><span class="name">Lucas</span><img src="images/perfil.jpg" alt="" /></a>
 									</div>
 								</header>
-								<span class="image featured"><img src="eolica/energiaeolica.jpg" alt="" /></span>
+								<span class="image featured"><img src="images/energiaeolica.jpg" alt="" /></span>
 								<p>
 									A base de dados possui 50.530 observações de uma turbina eólica e apresenta
 									algumas características:
@@ -104,56 +104,55 @@
 								</ul>
 								
 								<p>
-									Para compreender melhor este relatório, convido você a acessar o dashboard feito para demonstar essa análise clicando no link abaixo.
-								<p>
+									Para compreender melhor este relatório, convido você a acessar o dashboard feito para demonstar essa análise 
+									clicando no link abaixo.
+								</p>
 									<a href="https://app.powerbi.com/view?r=eyJrIjoiNGFhZDA2YjYtZTQ1ZC00MTU5LWFiNjYtZjE1NjM4NzZmNDE2IiwidCI6ImM3MGY0MDBiLWZlZGMtNGJkZS05MjYwLTNlNGRjNjhiNGFkOCJ9&pageName=ReportSectionf56d241bddd716a2040b" target="_blank" style="color:#FF0000;">Dashboard de vendas</a>
 								
 								<p><b>Considerações Iniciais</b><p>
 								<p>
-									A empresa atua no ramo de E-commerce e possui escritórios no Brasil, Espanha, México, Colômbia,
-									Estados Unidos e Holanda. Também possuía setores conforme o tamanho da empresa. Esses setores são definidos como:
-									First Sales, Atom, Small, Medium, Large, Key Account, Corporate e Enterprise sendo First Sales as menores e Enterprise as maiores.
+									Em um mundo onde consome-se cada vez mais energia, é necessária uma diversificação da matriz energética e 
+									ainda uma transição das fontes fósseis para fontes renováveis, como é o caso da energia eólica. 
+									Dessa forma, a energia eólica torna-se uma grande aliada nesse processo, pois é uma fonte abundante e que não polui o meio ambiente.
+									No entanto, nem tudo são flores.
+								</p>
 								<p>
+									Apesar de ser uma fonte inesgotável, conta com uma impressibilidade visto que ainda não possível prever a natureza com precisão.
+									O objetivo desta análise é tentar encontrar os principais fatores que influenciam na produção da energia e com isso otimizar o processo 
+									de produção através da elaboração de um cronograma de manutenção que interfira minimamente no processo e, também, observar tendências e 
+									fatores que possam influenciar em futuros projetos.
+								</p>
 								<p>
-									A base fornecida para análise possuía as seguintes informações: data da venda, setor, valores de comissões, data da primeira comissão,
-									se houve churn e ID do usuário. Além disso, ela apresentava cerca de 1,8% de valores vazios os quais foram descartados por não serem 
-									relevantes na amostra.
-								<p>
-								<p>
-									Foram utilizados indicadores sociais e de desenvolvimento dos sites do banco mundial  
-									<a href="https://data.worldbank.org/">(https://data.worldbank.org/)</a> e da ONU
-									<a href="https://hdr.undp.org/en/data">(https://hdr.undp.org/en/data)</a> 
-									na tentativa de encontrar relação entre as vendas e os aspectos sociais dos países.
-								<p>
+									Por fim, será elaborado um modelo de regressão linear com o intuito de prever a produção de energia trazendo maior previsibilidade
+									para o sistema e clareza para a concessionária que produz a energia.  
+								</p>
 								<p>
 									Ao longo da análise, foram constatados alguns problemas que poderiam prejudicar a análise e, consequentemente, levar a conclusões distorcidas. 
 									A base apresentou uma alta concentração de vendas no Brasil (cerca de 95%) sendo o restante das vendas distribuídas em mais de 70 países. Portanto, 
 									foi estabelecido um filtro no dashboard de modo que seja possível separar o Brasil dos outros países.
+								</p>									
+								<p><b>Tratamento dos dados</b><p>
 								<p>
+									A base não possui valores nulos, porém apresentou alguns outliers nos valores de velocidade do vento, 
+									o que é compreensível tendo em vista que as condições climáticas não são completamente previsíveis.
+								</p>
+								<p><b>Cronograma de manutenção</b><p>
+								<p>
+									Um cronograma de manutenção faz-se necessário não apenas por uma questão de planejamento,
+									mas sim porque a fonte não é controlável.
+								</p>
+								<p>
+									Foi constatado que o limiar de produção de energia é entre 3 e 4 m/s, no entanto observações com valores de velocidade de vento acima disso
+									também apareceram. Além disso, esses valores de velocidade de vento concentram-se nos meses de dezembro a fevereiro que são meses com uma produção
+									próxima da média geral de produção que é 1307,68 kW.
+								</p>
+								<p>
+									Os gráficos abaixo sugerem que os meses de menor produção energética são: Abril, Maio, Junho e Julho; já as horas com menor produção energética estão no intervalo
+									entre 04hrs e 15 hrs. Com isso, é possível elaborar um cronograma de manutenção que seja dentro destes meses, mas caso seja necessário realizar nos meses de maior
+									produção energética então que seja feita durante o dia para maximizar a produção energética.
+								</p>
 								
-									Antes de trazer as respostas dos objetivos, cabe definir um termo que será frequente neste relatório: o Churn. Churn nada mais é que a quantidade de clientes perdidos,
-									ou seja, é um indicador de retenção de clientes. Essa métrica é de extrema relevância para as empresas, já que com uma taxa de churn elevada todo o esforço do time de novas
-									vendas fica direcionado para a simples manutenção da quantidade de clientes.
-								<p>
-									
-								<p><b>Baixa retenção de clientes</b><p>
-								<p>
-									Na tentativa de encontrar os motivos para a baixa retenção de clientes, foram estudadas e comparadas as vendas com indicadores econômicos como:
-									IDH, acesso à internet, desemprego e PIB. Tais indicadores econômicos não apresentaram grande relevância, porém seria necessária uma amostra melhor
-									distribuída entre os países para uma análise mais assertiva.
-								<p>
-								<p>
-									Também foram traçadas relações quanto ao valor e ao momento do recebimento da comissão. Com relação ao valor, não foram encontradas relações relevantes,
-									já quanto ao momento do recebimento das comissões foi encontrada uma significância pois aqueles que já haviam recebido a primeira comissão apresentaram uma 
-									maior retenção do que aqueles que receberam após a data da venda.
-								<p>
-								<p><b>Estratégia para crescer e reter clientes</b><p>
-								<p>Os dados mostram que os escritórios possuem demandas de lugares diferentes daqueles onde estão sediados, mostrando que elas não estão bem distribuídas o que acaba proporcionando um alto churn pela quantidade de vendas. Com isso, uma estratégia seria a separação das demandas por região/continente e a distribuição delas para os escritórios mais próximos.<p>
-								<p>Uma análise com relação a taxa de Churn e o tamanho da empresa. Fica claro que os clientes menores apresentam uma taxa de churn maior que os clientes maiores e empresas, então seria interessante analisar os benefícios dos clientes maiores e tentar, dentro do possível, estender os benefícios para os clientes menores. Uma vez que o gráfico mostra que quanto maior a empresa maior a retenção do cliente. Portanto, os esforços deveriam ser destinados aos clientes novos e de pequeno porte.<p>
-								<p>Sugestão de adequação das demandas:<p>
-								<p>Direcionar o escritório do Brasil para o atendimento das demandas exclusivamente brasileiras, uma vez que são a maior parte das vendas (>95%) e o escritório da Colômbia para as demandas do restante da América do Sul. O escritório do Mexico para o restante da América do Norte e os europeus (Holanda e Espanha) para Europa, Asia, África e Oceania. Seria possível, enquanto novos escritórios não são abertos, direcionar o escritório dos Estados Unidos para auxiliar nas demandas dos escritórios europeus, pois, observando a taxa de Churn na América do Norte, o escritório mexicano apresentou uma maior quantidade de vendas e um churn mais baixo do que o escritório americano.<p>
-								
-								<p><b>Reestruturação do time</b><p>
+								<p><b>Atendimento da potência para a curva teórica</b><p>
 								<p>Estrutura atual:<p>
 								<img src="images/Atual.PNG" width="700" height="300">
 								
