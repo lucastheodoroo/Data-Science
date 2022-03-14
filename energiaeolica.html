@@ -1,0 +1,209 @@
+<!DOCTYPE HTML>
+<!--
+	Future Imperfect by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Data Science</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="single is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+				<!-- Header -->
+					<header id="header">
+						<h1><a href="index.html">Lucas Theodoro</a></h1>
+						<nav class="links">
+							<ul>
+								<li><a href="businessintelligence.html">Business Intelligence</a></li>
+								<li><a href="dashboards.html">Dashboards</a></li>
+								<li><a href="artigos.html">Artigos</a></li>
+								<li><a href="sobre.html">Sobre</a></li>
+							</ul>
+						</nav>
+						<nav class="main">
+							<ul>
+								<li class="search">
+									<a class="fa-search" href="#search">Search</a>
+									<form id="search" method="get" action="#">
+										<input type="text" name="query" placeholder="Search" />
+									</form>
+								</li>
+								<li class="menu">
+									<a class="fa-bars" href="#menu">Menu</a>
+								</li>
+							</ul>
+						</nav>
+					</header>
+				<!-- Menu -->
+					<section id="menu">
+						<!-- Search -->
+							<section>
+								<form class="search" method="get" action="#">
+									<input type="text" name="query" placeholder="Search" />
+								</form>
+							</section>
+						<!-- Links -->
+							<section>
+								<ul class="links">
+									<li>
+										<a href="#">
+											<h3>Dashboards</h3>
+											<p>Projetos em Power BI</p>
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<h3>Machine Learning</h3>
+											
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<h3>Business Intelligence</h3>
+											
+										</a>
+									</li>
+								</ul>
+							</section>
+
+					</section>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<article class="post">
+								<header>
+									<div class="title">
+										<h2><a href="#">Os ventos ao nosso favor</a></h2>
+										<p>Projeto de análise dos dados de uma turbina eólica e os fatores que
+											influenciam na produção de energia</p>
+									</div>
+									<div class="meta">
+										<time class="published" datetime="2022-03-10">Março 10, 2022</time>
+										<a href="#" class="author"><span class="name">Lucas</span><img src="images/perfil.jpg" alt="" /></a>
+									</div>
+								</header>
+								<span class="image featured"><img src="eolica/energiaeolica.jpg" alt="" /></span>
+								<p>
+									A base de dados possui 50.530 observações de uma turbina eólica e apresenta
+									algumas características:
+								</p>
+								<ul>
+									<li><b>Data/Hora:</b> Observações a cada 10 minutos durante todo o ano de 2018;</li>
+									<li><b>Energia Produzida:</b> Energia gerada pela turbina;</li>
+									<li><b>Velocidade do vento:</b> Velocidade do vento lida na turbina, que é onde é produzida a energia;</li>
+									<li><b>Curva teórica:</b> Energia que seria produzida se todas as condições ideais fossem atingidas. Esse valor é fornecido pelo fabricante;</li>
+									<li><b>Direção do Vento:</b> A direção do vento na turbina (a turbina é rotacionada automaticamente).</li>
+								</ul>
+								
+								<p>
+									Para compreender melhor este relatório, convido você a acessar o dashboard feito para demonstar essa análise clicando no link abaixo.
+								<p>
+									<a href="https://app.powerbi.com/view?r=eyJrIjoiNGFhZDA2YjYtZTQ1ZC00MTU5LWFiNjYtZjE1NjM4NzZmNDE2IiwidCI6ImM3MGY0MDBiLWZlZGMtNGJkZS05MjYwLTNlNGRjNjhiNGFkOCJ9&pageName=ReportSectionf56d241bddd716a2040b" target="_blank" style="color:#FF0000;">Dashboard de vendas</a>
+								
+								<p><b>Considerações Iniciais</b><p>
+								<p>
+									A empresa atua no ramo de E-commerce e possui escritórios no Brasil, Espanha, México, Colômbia,
+									Estados Unidos e Holanda. Também possuía setores conforme o tamanho da empresa. Esses setores são definidos como:
+									First Sales, Atom, Small, Medium, Large, Key Account, Corporate e Enterprise sendo First Sales as menores e Enterprise as maiores.
+								<p>
+								<p>
+									A base fornecida para análise possuía as seguintes informações: data da venda, setor, valores de comissões, data da primeira comissão,
+									se houve churn e ID do usuário. Além disso, ela apresentava cerca de 1,8% de valores vazios os quais foram descartados por não serem 
+									relevantes na amostra.
+								<p>
+								<p>
+									Foram utilizados indicadores sociais e de desenvolvimento dos sites do banco mundial  
+									<a href="https://data.worldbank.org/">(https://data.worldbank.org/)</a> e da ONU
+									<a href="https://hdr.undp.org/en/data">(https://hdr.undp.org/en/data)</a> 
+									na tentativa de encontrar relação entre as vendas e os aspectos sociais dos países.
+								<p>
+								<p>
+									Ao longo da análise, foram constatados alguns problemas que poderiam prejudicar a análise e, consequentemente, levar a conclusões distorcidas. 
+									A base apresentou uma alta concentração de vendas no Brasil (cerca de 95%) sendo o restante das vendas distribuídas em mais de 70 países. Portanto, 
+									foi estabelecido um filtro no dashboard de modo que seja possível separar o Brasil dos outros países.
+								<p>
+								
+									Antes de trazer as respostas dos objetivos, cabe definir um termo que será frequente neste relatório: o Churn. Churn nada mais é que a quantidade de clientes perdidos,
+									ou seja, é um indicador de retenção de clientes. Essa métrica é de extrema relevância para as empresas, já que com uma taxa de churn elevada todo o esforço do time de novas
+									vendas fica direcionado para a simples manutenção da quantidade de clientes.
+								<p>
+									
+								<p><b>Baixa retenção de clientes</b><p>
+								<p>
+									Na tentativa de encontrar os motivos para a baixa retenção de clientes, foram estudadas e comparadas as vendas com indicadores econômicos como:
+									IDH, acesso à internet, desemprego e PIB. Tais indicadores econômicos não apresentaram grande relevância, porém seria necessária uma amostra melhor
+									distribuída entre os países para uma análise mais assertiva.
+								<p>
+								<p>
+									Também foram traçadas relações quanto ao valor e ao momento do recebimento da comissão. Com relação ao valor, não foram encontradas relações relevantes,
+									já quanto ao momento do recebimento das comissões foi encontrada uma significância pois aqueles que já haviam recebido a primeira comissão apresentaram uma 
+									maior retenção do que aqueles que receberam após a data da venda.
+								<p>
+								<p><b>Estratégia para crescer e reter clientes</b><p>
+								<p>Os dados mostram que os escritórios possuem demandas de lugares diferentes daqueles onde estão sediados, mostrando que elas não estão bem distribuídas o que acaba proporcionando um alto churn pela quantidade de vendas. Com isso, uma estratégia seria a separação das demandas por região/continente e a distribuição delas para os escritórios mais próximos.<p>
+								<p>Uma análise com relação a taxa de Churn e o tamanho da empresa. Fica claro que os clientes menores apresentam uma taxa de churn maior que os clientes maiores e empresas, então seria interessante analisar os benefícios dos clientes maiores e tentar, dentro do possível, estender os benefícios para os clientes menores. Uma vez que o gráfico mostra que quanto maior a empresa maior a retenção do cliente. Portanto, os esforços deveriam ser destinados aos clientes novos e de pequeno porte.<p>
+								<p>Sugestão de adequação das demandas:<p>
+								<p>Direcionar o escritório do Brasil para o atendimento das demandas exclusivamente brasileiras, uma vez que são a maior parte das vendas (>95%) e o escritório da Colômbia para as demandas do restante da América do Sul. O escritório do Mexico para o restante da América do Norte e os europeus (Holanda e Espanha) para Europa, Asia, África e Oceania. Seria possível, enquanto novos escritórios não são abertos, direcionar o escritório dos Estados Unidos para auxiliar nas demandas dos escritórios europeus, pois, observando a taxa de Churn na América do Norte, o escritório mexicano apresentou uma maior quantidade de vendas e um churn mais baixo do que o escritório americano.<p>
+								
+								<p><b>Reestruturação do time</b><p>
+								<p>Estrutura atual:<p>
+								<img src="images/Atual.PNG" width="700" height="300">
+								
+								<p>Alocação correta do tim<p>
+								<p>Considerando que o número de clientes vem crescendo ao longo do tempo, o foco do time deveria ser nos setores: OB Tech, OB Consult e Recover. O foco nesses times justifica-se pelo fato de as métricas de vendas apresentarem um alto índice de churn por vendas, principalmente nos clientes de pequeno porte (First Sales e Atom). Com esses três setores recebendo uma atenção especial, é possível que haja um aumento na retenção dos clientes na plataforma.<p>
+								<p>A quantidade de pessoas no time, inicialmente, não sofreria alteração a fim de que se avaliasse a performance dessa nova distribuição de analistas para posteriormente aumentar a equipe. Dessa forma, é possível fazer o direcionamento de novas pessoas para os setores adequados evitando o gasto desnecessário com o treinamento de pessoal para funções erradas.<p>
+								
+								<p>Proposta de alocação de pessoal:<p>
+								<img src="images/Proposta.PNG" width="700" height="300">
+								<p>Métricas<p>
+								<p>Seria necessário avaliar se foi possível reverter os clientes que deram churn, se o ritmo de crescimento de usuários foi mantido e se o churn dos clientes pequenos ou com poucas vendas diminuiu. Seria interessante acompanhar os indicadores sociais dos países, pois como o Brasil representa a maior parte da amostra não é possível afirmar com clareza que indicadores sociais não influenciam nas vendas.<p>
+								
+								<p><b>Plano para expansão internacional</b><p>
+								<p>O melhor plano para expansão seria a empresa focar nos continentes onde não existem escritórios (Asia e África), porque os dados refletem que os escritórios europeus atendem toda a demanda nessas regiões. Cabe um destaque para o continente asiático, já que ele apresenta um bom nível de retenção mesmo com um baixo volume de vendas, além de que as vendas foram operacionalizadas pelo escritório europeu, ou seja, mesmo sendo feitas por escritórios distantes as vendas apresentam baixo churn.<p>
+								<p>Ambos os continentes possuem vantagens e desvantagens. A Asia tem um alto desenvolvimento tecnológico, porém a empresa enfrentaria uma alta concorrência com as grandes empresas já consolidadas no setor. Já na África, poderia ser necessário a empresa readequar a tecnologia para atender a demanda em função dos problemas logísticos, tecnológicos e humanitários que a região enfrenta.<p>
+								<p>Vale ressaltar que a Ásia seria mais interessante em virtude da maturidade tecnológica. Com foco em localidades como Japão, Macau e Singapura, já que esses lugares apresentam bons níveis de retenção de clientes.<p>
+								
+								<p><b>Conclusões</b><p>
+								<p>
+									Após essa análise, foi possível constatar alguns problemas operacionais os quais podem ser a causa da alta taxa de churn.
+									Porém, feita a reestruturação do time, o direcionamento das demandas para os escritórios adequados e a tentativa de estender
+									os benefícios dos clientes grandes para os pequenos seria necessário analisar os próximos meses para observar a efetividade das
+									mudanças.
+								<p>
+								<p>
+									Agradeço você por ter lido até aqui e até mais.
+								<p>
+									
+								</footer>
+							</article>
+
+					</div>
+
+				<!-- Footer -->
+					<section id="footer">
+						<ul class="icons">
+							<li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+							<li><a href="www.linkedin.com/in/lucas-theodoro-381219211" class="fa-brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+					
+						</ul>
+					</section>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
