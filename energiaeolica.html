@@ -117,41 +117,58 @@
 								<p><b>Considerações Iniciais</b></p>
 								<p>
 									Em um mundo onde consome-se cada vez mais energia, é necessária uma diversificação da matriz energética e 
-									ainda uma transição das fontes fósseis para fontes renováveis. 
+									uma transição das fontes fósseis para fontes renováveis. 
 									Dessa forma, a energia eólica torna-se uma grande aliada nesse processo, pois é uma fonte abundante e que não polui o meio ambiente.
-									No entanto, nem tudo são flores.
+									Entretanto, conta com a imprevisibilidade e incerteza da natureza.
 								</p>
 								<p>
-									Apesar de ser uma fonte inesgotável, conta com a impressibilidade da natureza.
-									O objetivo desta análise é tentar encontrar os principais fatores que influenciam na produção da energia e com isso otimizar o processo 
-									produtivo através da elaboração de um cronograma de manutenção que interfira minimamente no processo e, também, observar tendências e 
-									fatores que possam influenciar em futuros projetos.
-								</p>
-								<p>
-									Por fim, será elaborado um modelo de regressão linear com o intuito de prever a produção de energia trazendo maior previsibilidade
-									para o sistema e para concessionária que produz a energia.  
-								</p>
-								<p>
-									Com relação ao tratamento dos dados, a base não possui valores nulos, porém apresentou alguns outliers nos valores de velocidade do vento, 
-									o que é compreensível tendo em vista que as condições climáticas não são completamente previsíveis.
-								</p>
-								<p><b>Cronograma de manutenção</b><p>
-								<p>
-									Um cronograma de manutenção faz-se necessário não apenas por uma questão de planejamento,
-									mas também porque a fonte utilizada não é controlável. Logo, cabe a nós nos adequarmos aos
-									fatores climáticos para maximizar a produção.
-								</p>
-								<p>
-									Foi constatado que o limiar de produção de energia é entre 3 e 4 m/s, no entanto observações com valores de velocidade de vento acima disso
-									também apareceram. Além disso, esses valores de velocidade de vento concentram-se nos meses de dezembro a fevereiro que são meses com uma produção
-									próxima da média geral de produção que é 1307,68 kW.
-								</p>
-								<p>
-									Os gráficos abaixo sugerem que os meses de menor produção energética são: Abril, Maio, Junho e Julho; já as horas com menor produção energética estão no intervalo
-									entre 04hrs e 15 hrs. Com isso, é possível elaborar um cronograma de manutenção que seja dentro destes meses, mas caso seja necessário realizar nos meses de maior
-									produção energética então que seja feita durante o dia para maximizar a produção energética.
+									
+									O objetivo desta análise é tentar encontrar os principais fatores que influenciam na produção da energia e com isso fornecer informações úteis
+									para otimizar o processo produtivo seja auxiliando na elaboração de um cronograma de manutenção que interfira minimamente no processo 
+									ou observando tendências e fatores regionais que possam influenciar na instalação de novas turbinas. Por fim, a base será preparada para ser utilizada
+									em modelos de machine learning, os quais não objeto deste estudo.
 								</p>
 								
+								<p><b>Tratamento dos dados</b><p>
+								<p>
+									A base possui uma estrutura adequada então foram feitas alterações de nomenclatura para facilitar
+									a compreensão durante a manipulaçãonão e inseridos valores de data e hora para facilitar algumas análises
+									Com relação aos valores, não foram encontrados valores nulos ou inconsistentes, no entanto alguns outliers 
+									foram localizados nos valores de velocidade do vento
+									o que é compreensível tendo em vista que as condições climáticas não são completamente previsíveis.
+								</p>
+								<p><b>Características da turbina e dos ventos</b><p>
+								<p>
+									Foi constatado que a direção do vento com mais velocidade é entre 180 e 225° e entre 0 e 90°, permitindo que
+									em futuras instalaçãoes seja observado com cuidado para aproveitar ao maximo as características da região. Conforme o gráfico
+									abaixo.
+								</p>
+								<img src="graficoseolica/direcaodovento.jpg " width="500" height="300">
+								<p>
+									Já com relação a velocidade do vento, o gráfico abaixo descreve que dos 15 m/s em diante geração
+									de energia passa e ficar próxima de uma constante.
+									
+								</p>
+								<img src="graficoseolica/histogramavento.jpg" width="500" height="300">
+								<p>
+									Com relação a produção de enrgia, foram elaborados os gráficos abaixo com o intuito de observar
+									a produção em tempos diferentes (meses e horas) também foi calculado a média geral.
+									
+								</p>
+								
+								<p>Média geral de produção energética: 1307,68 kW<p>
+								<p>Gráfico da média mensal<p>
+								<img src="graficoseolica/mediames.jpg" width="500" height="300">
+								<p>Gráfico da média por hora<p>
+								<img src="graficoseolica/mediahora.jpg" width="500" height="300">
+								
+								<p>
+									Os gráficos sugerem que os meses de menor produção energética são: Abril, Maio, Junho e Julho; já as horas com menor produção energética estão no intervalo
+									entre 04hrs e 15 hrs. Com isso, é possível elaborar um cronograma de manutenção que seja dentro destes meses, mas caso seja necessário realizar nos meses de maior
+									produção energética então que seja feita durante o dia para aproveitar o máximo possível 
+									o período de ventos elevados.
+								</p>
+						
 								<p><b>Atendimento da potência para a curva teórica</b><p>
 								<p>
 									A curva teórica é fornecida pelo fabricante da turbina a qual apresenta os valores de produção energética mediante condições ideais, porém a realidade não se adequa
@@ -163,14 +180,6 @@
 								</p>
 								<img src="graficoseolica/lmite5.jpg" width="500" height="300">
 								<img src="graficoseolica/lmite10.jpg" width="500" height="300">
-
-								<p>Métricas<p>
-								<p>Seria necessário avaliar se foi possível reverter os clientes que deram churn, se o ritmo de crescimento de usuários foi mantido e se o churn dos clientes pequenos ou com poucas vendas diminuiu. Seria interessante acompanhar os indicadores sociais dos países, pois como o Brasil representa a maior parte da amostra não é possível afirmar com clareza que indicadores sociais não influenciam nas vendas.<p>
-								
-								<p><b>Análise da localidade</b><p>
-								<p>
-									Com o gráfico a seguir foi constatado que a direção do vento com mais velocidade é entre 180 e 225° e entre 0 e 90°.
-								</p>
 
 								<p><b>Conclusões</b><p>
 								<p>
