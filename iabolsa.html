@@ -123,7 +123,7 @@
 									(regulação, custos, mercado internacional).
 								</p>
 								<p>
-									O benchmark da carteira é o índice ibovespa já que a carteira é composta apenas de
+									O benchmark da carteira é o índice Ibovespa já que a carteira é composta apenas de
 									ações e engloba tanto large caps como mid caps.
 								</p>
 								
@@ -167,14 +167,44 @@
 								
 								<p><b>Machine Learning</b><p>
 								<p>
-									Como foram separadas muitas características, nem sempre isso é positivo então faz-se
-									necessário uma seleção das principais características para que o algoritmo tome 
-									decisões mais assertivas.
+									Seleção de características
+								</p>
+								<p>
+									Foram separadas muitas características então foram excluídas algumas na tentativa de otimizar
+									o modelo. Para isso foi elaborada uma árvore de decisão para elencar as 10 características 
+									mais importantes as quais estão elencadas abaixo.
+								</p>
+								<p>
+									Feito isso, partimos para o processo de normalização dos dados utilizando o StandarScaler do 
+									pacote de pré-processamento do skitlearn, a separação dos dados em treino e teste e a criação 
+									de um modelo de puro chute para efetuar a comparação. Após isso, foram testados vários modelos
+									e obteve-se melhor resultado com o modelo random forest e então foi realizado o tunning desse 
+									modelo na tentativa de obter um resultado melhor alterando os parâmetros do modelo.
+								</p>
+								<p>
+									Por fim, foi feito o teste nos dados reais e obtido o resultado superior ao Ibovespa
+									de aproximadamente 7%.
+								</p>
+								<p><b>Conclusão</b><p>
+								<p>
+									Considerando o resultado obtido, o teste do modelo foi um sucesso obtendo um rendimento expressivo
+									considerando um trimestre e o mercado de ações. No entanto, seria necessário um teste em um período maior, mas
+									com o resultado positivo fica claro que é possível utilizar machine learning para operar no mercado financeiro.
+									Deixo na próxima seção uma opinião sobre o assunto e a aplicação do modelo.
 								</p>
 								<p><b>Opinião</b><p>
 								<p>
+									Analisando o código e os resultados, vejo alguns problemas como o fato de que nas datas de fechamento dos trimestres, em que são revelados os fundamentos,
+									não necessariamente vai refletir no preço da ação no dia. No momento das correlações, fica evidente uma alta correlação entre alguns itens em virtude da sua natureza
+									contábil. 
 									A retirada de valores vazios para preparar a base pode eliminar fatores
-									relevantes para a análise individual da empresa. Data da divulgação não 
+									relevantes para a análise individual da empresa, uma vez que cada setor tem suas particularidades
+									Seleção de ações o modelo pode se comportar muito bem com large caps tendo em vista que elas andam muito bem com os fundamentos o que é diferente de 
+									micro/low caps que ficam em um nicho de opcionalidades e não necessáriamente andam em linha com os fundamentos
+									(ex: startup reporta prejuizo com promessa de lucro no futuro)
+									ao meu ver a utilização deve ser feita com muito cuidado e tambem utilziar de forma consciente ou seja deixar que o individuo tome as decisoes
+									pois ainda existem nuances que modelos matematicos nao sao capazes de abordar.
+									. Data da divulgação não 
 									reflete imediatamente os fundasmentos.
 								</p>
 								
