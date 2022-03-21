@@ -52,23 +52,28 @@
 							<section>
 								<ul class="links">
 									<li>
-										<a href="#">
+										<a href="dashboards.html">
 											<h3>Dashboards</h3>
 											<p>Projetos em Power BI</p>
 										</a>
 									</li>
 									<li>
-										<a href="#">
-											<h3>Machine Learning</h3>
-											
-										</a>
-									</li>
-									<li>
-										<a href="#">
+										<a href="businessintelligence.html">
 											<h3>Business Intelligence</h3>
 											
 										</a>
 									</li>
+									<li>
+										<a href="artigos.html">
+											<h3>Artigos</h3>
+										</a>
+									</li>
+									<li>
+										<a href="ml.html">
+											<h3>Machine Learning</h3>
+										</a>
+									</li>
+									
 								</ul>
 							</section>
 
@@ -81,16 +86,15 @@
 							<article class="post">
 								<header>
 									<div class="title">
-										<h2><a href="#">Os ventos ao nosso favor</a></h2>
-										<p>Projeto de análise dos dados de uma turbina eólica e os fatores que
-											influenciam na produção de energia</p>
+										<h2><a href="">Decisão artificial?</a></h2>
+										<p>Análise de dados e machine learning para operação no mercado financeiro</p>
 									</div>
 									<div class="meta">
-										<time class="published" datetime="2022-03-10">Março 10, 2022</time>
-										<a href="#" class="author"><span class="name">Lucas</span><img src="images/perfil.jpg" alt="" /></a>
+										<time class="published" datetime="2022-03-20">Março 20, 2022</time>
+										<a href="sobre.html" class="author"><span class="name">Lucas</span><img src="images/perfil.jpg" alt="" /></a>
 									</div>
 								</header>
-								<span class="image featured"><img src="images/energiaeolica.jpg" alt="" /></span>
+								<span class="image featured"><img src="images/robo.jpg" alt="" /></span>
 								<p>
 									A base de dados possui 50.530 observações de uma turbina eólica e apresenta
 									algumas características:
@@ -112,108 +116,80 @@
 								
 								<p><b>Considerações Iniciais</b></p>
 								<p>
-									Em um mundo onde se consome cada vez mais energia, é necessária uma diversificação da matriz energética e 
-									uma transição das fontes fósseis para fontes renováveis. 
-									Dessa forma, a energia eólica torna-se uma grande aliada nesse processo, pois é uma fonte abundante e que não polui o meio ambiente.
-									Entretanto, conta com a imprevisibilidade e incerteza da natureza.
+									A análise fundamentalista é um dos pilares do investimento em valor (famoso value investing)
+									preconizado por grandes investidores como Benjamin Graham e Warren Buffet. Desse modo, esse
+									modelo foi desenvolvido utilizando a análise das demonstrações de balanço patrimonial e 
+									demonstração do resultado do exercício (DRE) como fundamentos para investimento em empresas
+									listadas na bolsa de valores.
 								</p>
 								<p>
-									
-									O objetivo desta análise é tentar encontrar os principais fatores que influenciam na produção da energia e com isso fornecer informações úteis
-									para otimizar o processo produtivo. Essas informações podem ser utilizadas desde a elaboração de um cronograma de manutenção que prejudique minimamente a produção de energia 
-									até a percepção de tendências e fatores regionais que possam influenciar na instalação de novas turbinas. Por fim, a base será preparada para ser utilizada
-									em modelos de machine learning, os quais não são objeto deste estudo.
+									Destaco que esta análise, em um primeiro momento, tem como foco a demonstração de um
+									modelo de inteligência artificial que determine se uma ação deva ser comprada ou não.
+									Deixando de lado fatores relevantes na alocação de ativos como, por exemplo: setores,
+									tamanho da empresa e governança corporativa.
+								</p>
+								<p>
+									Com relação as empresas escolhidas, foram selecionados diversos setores: aéreo,
+									energia, shoppings, financeiro entre tantas outras. Com isso, eliminamos um possível
+									viés setorial tendo em vista que cada setor possui características particulares 
+									(regulação, custos, mercado internacional).
+								</p>
+								<p>
+									O benchmark da carteira é o índice ibovespa já que a carteira é composta apenas de
+									ações e engloba tanto large caps como mid caps.
 								</p>
 								
-								<p><b>Tratamento dos dados</b><p>
+								<p><b>Base de dados</b><p>
 								<p>
-									A base possui uma estrutura adequada então foram feitas apenas alterações de nomenclatura para facilitar
-									a compreensão durante a manipulação dos dados e também foram inseridos valores de data e hora para facilitar algumas análises.
-									Com relação aos valores, não foram encontrados valores nulos ou inconsistentes, no entanto alguns outliers 
-									foram localizados nos valores de velocidade do vento
-									o que é compreensível tendo em vista que as condições climáticas não são completamente previsíveis.
+									A elaboração da base de dados iniciou com a extração das demonstrações do site
+									fundamentus e, posteriormente, foi feito um tratamento para que ficasse apropriada
+									para análise. 
 								</p>
-								<p><b>Características da turbina e dos ventos</b><p>
 								<p>
-									Foi constatado que a direção do vento com mais velocidade é entre 180 e 225° e entre 0 e 90°, permitindo que
-									em futuras instalaçãoes seja observado com cuidado para aproveitar ao máximo as características da região. No gráfico abaixo
-									estão pontuadas as observações representando a velocidade e a direção do vento.
+									Tratamento da base foi feito com ajustes básicos: alteração de título, mudanças de índices,
+									cabeçalhos das colunas com a base dos fundamentos ajustadas foram extraídas as cotações
+									dos papéis e juntadas aos fundamentos das empresas nas datas correspondentes, já que as 
+									demonstrações são divulgadas trimestralmente as cotações utilizadas serão as das datas de
+									divulgação dos balaços.
 								</p>
+								
+								<p>
+									Com a base contendo todas essas informações, é necessário que seja feito o tratamento
+									das colunas pois algumas empresas divulgam demonstrações com colunas diferentes (EXEMPLO).
+									feito esse ajuste restaram X empresas na base.
+								</p>
+								<p>
+									Foi realizada a contagem dos valores vazios por coluna e considerado uma regra de forma
+									arbitraria que a coluna com mais de 50 observações vazias seria eliminada da base para
+									não distorcer a análise como um todo.
+								</p>
+								
+								<p><b>Parâmetros para o modelo</b><p>
+								<p>
+									O objetivo do modelo é informar quando comprar e não quando vender, porém o modelo
+									irá classificar em três categorias (compra vende não compra) porque isso vai impactar 
+									nos indicadores de precisão e recall para saber quando o modelo indica compra, mas na 
+									verdade seria venda.
+								</p>
+								<p>
+									Também foi adicionado as cotações do Ibovespa para que fosse feita a comparação. 
+									E transformado tudo em um só dataframe.
+								</p>	
 								<img src="graficoseolica/direcaodovento.jpg " width="500" height="500">
 								
+								<p><b>Machine Learning</b><p>
 								<p>
-									Já com relação a velocidade do vento, o gráfico abaixo descreve que a partir dos 15 m/s a geração
-									de energia passa a ficar próxima de uma constante que é seu máximo (3500 kW).
-									
+									Como foram separadas muitas características, nem sempre isso é positivo então faz-se
+									necessário uma seleção das principais características para que o algoritmo tome 
+									decisões mais assertivas.
 								</p>
-								<img src="graficoseolica/histogramavento.jpg" width="500" height="300">
+								<p><b>Opinião</b><p>
 								<p>
-									Com relação a produção de energia, foram elaborados os gráficos abaixo com o intuito de observar
-									a produção em tempos diferentes (meses e horas).
-									
+									A retirada de valores vazios para preparar a base pode eliminar fatores
+									relevantes para a análise individual da empresa. Data da divulgação não 
+									reflete imediatamente os fundasmentos.
 								</p>
 								
-								<p>Média geral de produção energética: 1307,68 kW<p>
-								<img src="graficoseolica/mediames.jpg" width="500" height="300">
-								<img src="graficoseolica/mediahora.jpg" width="500" height="300">
-								
-								<p>
-									Os gráficos sugerem que os meses de menor produção energética são: Abril, Maio, Junho e Julho; já as horas com menor produção energética estão no intervalo
-									entre 04hrs e 15 hrs. Com isso, é possível elaborar um cronograma de manutenção que seja dentro destes meses, mas caso seja necessário realizar nos meses de maior
-									produção energética então que seja feita durante o dia já que é o período com ventos mais brandos.
-								</p>
-						
-								<p><b>Atendimento da potência para a curva teórica</b><p>
-								<p>
-									A curva teórica é fornecida pelo fabricante da turbina a qual apresenta os valores de produção energética mediante condições ideais, porém a realidade não se adequa
-									perfeitamente à curva teórica e, com isso, foram desenvolvidos dois gráficos com desvios de 5% e 10% da curva teórica.
-								</p>
-								<img src="graficoseolica/realxteorico.jpg" width="500" height="300">
-								<p>
-									Analisando a curva teórica e a energia produzida pela turbina foi observado que com 5% de tolerância
-									a produção se adequou 37%, já com 10% de margem esse valor foi de 51%.
-								</p>
-								<img src="graficoseolica/lmite5.jpg" width="500" height="300">
-								<img src="graficoseolica/lmite10.jpg" width="500" height="300">
-								
-								<p>
-									Observando as distribuições acima notou-se que existe um limiar de velocidade para iniciar a 
-									produção de energia que fica por volta de 3 m/s e 4 m/s. 
-								</p>
-								<img src="graficoseolica/distprod0.jpg" width="500" height="300">
-								<p>
-									No entanto, mesmo com esse limiar foi constatado
-									que algumas observações apresentaram ventos fortes, porém sem produção de energia. Essas observações
-									se concentram nos meses de Dezembro a Fevereiro que também são os meses que a produção de energia é mais alta.
-									Logo, foram disperdiçados valores consideráveis de produção energética em virtude das paradas nesses períodos.
-								</p>
-								<img src="graficoseolica/velzero.jpg" width="500" height="300">
-								<img src="graficoseolica/ventoselevmes.jpg" width="500" height="300">
-								<p>	
-									Essas observações podem representar manutenções, danos ou paradas técnicas, mas
-									não temos informações sobre isso.
-								</p>
-								
-								
-								
-								
-								<p><b>Preparação Machine Learning</b><p>
-								
-								<p>
-									Conforme o gráfico abaixo, foram constados alguns outliers nos valores de velocidade do vento que poderiam prejudicar um modelo de machine learning,
-									então foi feita a correção dos mesmos para que a base pudesse ser aplicada em um futuro modelo.
-								</p>
-								<img src="graficoseolica/boxplot.jpg" width="1200" height="300">
-								<img src="graficoseolica/boxplotlimpo.jpg" width="800" height="300">
-								
-								<p><b>Conclusões</b><p>
-								<p>
-									Analisando esta base de dados foi possível percerber nuances que otimizariam a produção de energia desde a instalação
-									da turbina até a escolha dos momentos para a manutenção. Além disso, foi possível notar que, mesmo com pequenos desvios, a produção de energia
-									se adequa à curva teórica de produção de forma consistente. Por fim, ficou claro que paradas para manutenções em momentos específicos
-									prejudicariam menos a produção de energia.
-																
-								</p>
 								<p>
 									Assim encerro mais uma análise e agradeço você por ter lido até aqui. Um abraço!
 								</p>
