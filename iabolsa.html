@@ -124,34 +124,40 @@
 								</p>
 								<img src="images/iabolsa/Capture.JPG" width="500" height="300">
 								<p>
-									O benchmark da carteira é o índice Ibovespa já que a carteira é composta apenas de
+									O benchmark da carteira é o índice Ibovespa já que a carteira é composta apenas por
 									ações e engloba tanto large caps como mid caps.
 								</p>
 								
 								<p><b>Base de dados</b><p>
 								<p>
 									A elaboração da base de dados iniciou com a extração das demonstrações do site
-									fundamentus e, posteriormente, foi feito um tratamento para que ficasse apropriada
-									para análise. 
-								</p>
+									fundamentus e, posteriormente, foi feito um tratamento básico: alteração de títulos, índices, cabeçalhos.
+									Além disso, foram extraídas as cotações dos papéis nas datas de divulgação das demonstrações, que geralmente são trimestrais,
+									e unidas com a base. Por fim, foi montado um dicionário python com os nomes dos papéis sendo as chaves e o balanço e DRE sendo os valores.
+								</p>						
 								<p>
-									Tratamento da base foi feito com ajustes básicos: alteração de título, mudanças de índices,
-									cabeçalhos das colunas com a base dos fundamentos ajustadas foram extraídas as cotações
-									dos papéis e juntadas aos fundamentos das empresas nas datas correspondentes, já que as 
-									demonstrações são divulgadas trimestralmente as cotações utilizadas serão as das datas de
-									divulgação dos balaços.
+									Embora tanto o balanço patrimonial quanto a DRE possuem padrões de elaboração, sabe-se que cada empresa
+									elabora com base na sua operação o que ocasiona em demonstrações com linhas diferentes ou termos diferentes, mas
+									sem deixar de lado o padrão de elaboração.
+									Dessa forma, foram eliminadas as colunas que diferem muito de um padrão na tentativa de melhorar a base para aplicação
+									do modelo restando 61 empresas. Foi constatado que as demonstrações apresentavam colunas com o mesmo nome então foi feito
+									um pequeno ajuste para não gerar incosistência no modelo.
+									
 								</p>
 								
 								<p>
-									Com a base contendo todas essas informações, é necessário que seja feito o tratamento
-									das colunas pois algumas empresas divulgam demonstrações com colunas diferentes (EXEMPLO).
-									feito esse ajuste restaram X empresas na base.
+									Com todo o tratamento feito falta apenas estipular uma regra para que o modelo possa ter como base que decisão tomar, para isso 
+									estipulamos uma regra de que variações com relação ao Ibovespa de até 2% seriam enquadradas como "Não Comprar" pois é uma variação pouco
+									significativa e variações acima ou abaixo disso seriam classificadas como "Comprar" e "Vender". Embora o modelo, não foque em avisar quando vender,
+									essa classificação é importante para analisarmos os erros do modelo.
 								</p>
 								<p>
-									Foi realizada a contagem dos valores vazios por coluna e considerado uma regra de forma
-									arbitraria que a coluna com mais de 50 observações vazias seria eliminada da base para
-									não distorcer a análise como um todo.
+									Após elaborada a base de dados, foi feito o tratamento dis valores vazios. Para isso
+									foram contados os valores vazios por coluna e considerado uma regra 
+									que a coluna com mais de 50 observações vazias seria eliminada da base.
 								</p>
+								
+								<p><b>Análise exploratória</b><p>
 								
 								<p><b>Parâmetros para o modelo</b><p>
 								<p>
@@ -166,6 +172,11 @@
 								</p>	
 								<img src="" width="500" height="500">
 								
+								<p><b>Análise Exploratória</b><p>
+								<p>
+										Após inserir a coluna de 'Decisão', foi plotado o histograma abaixo na tentativa de entender a distribuição das decisões.
+								</p>
+								<img src="histograma decisao" width="500" height="500">
 								<p><b>Machine Learning</b><p>
 								<p>
 									Seleção de características
