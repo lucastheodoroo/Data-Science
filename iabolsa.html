@@ -117,67 +117,60 @@
 									alocação de ativos como, por exemplo: setores, tamanho da empresa e governança corporativa.
 								</p>						
 								<p>
-									Com relação as empresas escolhidas, foram selecionados diversos setores: aéreo,
-									energia, shoppings, financeiro entre tantas outras. Com isso, eliminamos um possível
-									viés setorial tendo em vista que cada setor possui características particulares 
-									(regulação, custos, mercado internacional). O benchmark da carteira é o índice Ibovespa já que 
-									a carteira é composta apenas por ações e engloba tanto large caps como mid caps.
+									Com relação as empresas escolhidas, foram selecionados diversos setores: consumo e varejo, energia e saneamento,
+									financeiro entre tantas outras conforme a imagem abaixo. Com isso, eliminamos um possível
+									viés setorial, uma vez que cada setor possui características particulares 
+									(regulação, custos, mercado internacional). A carteira tem como benchmark o índice Ibovespa, já que 
+									é composta apenas por ações e engloba tanto large caps como mid caps.
 								</p>
 								<img src="images/iabolsa/Capture.JPG" width="700" height="300">
 								
 								<p><b>Base de dados</b><p>
 								<p>
 									A elaboração da base de dados iniciou com a extração das demonstrações do site
-									fundamentus e, posteriormente, foi feito um tratamento básico: alteração de títulos, índices, cabeçalhos.
+									fundamentus e, posteriormente, foi feito um tratamento básico: alteração de títulos, índices e cabeçalhos.
 									Além disso, foram extraídas as cotações dos papéis nas datas de divulgação das demonstrações, que geralmente são trimestrais,
-									e unidas com a base. Por fim, foi montado um dicionário python com os nomes dos papéis sendo as chaves e o balanço e DRE sendo os valores.
+									e unidas na base. Por fim, foi montado um dicionário python sendo as chave os nomes dos papéis e o balanço e a DRE sendo os valores.
 								</p>						
 								<p>
-									Embora tanto o balanço patrimonial quanto a DRE possuem padrões de elaboração, sabe-se que cada empresa
-									elabora com base na sua operação o que ocasiona em demonstrações com linhas diferentes ou termos diferentes, mas
+									Embora tanto o balanço patrimonial quanto a DRE possuam padrões de elaboração, sabe-se que cada empresa
+									elabora com base na sua operação ocasionando demonstrações com linhas diferentes ou termos diferentes, mas
 									sem deixar de lado o padrão de elaboração.
 									Dessa forma, foram eliminadas as colunas que diferem muito de um padrão na tentativa de melhorar a base para aplicação
-									do modelo restando 61 empresas. Foi constatado que as demonstrações apresentavam colunas com o mesmo nome então foi feito
+									do modelo restando 61 empresas (conforme tabela abaixo). Feito tudo isso, também foi constatado que as demonstrações apresentavam colunas com o mesmo nome então foi feito
 									um pequeno ajuste para não gerar incosistência no modelo.
 									
 								</p>
-								
+								<img src="images/iabolsa/Capture.JPG" width="700" height="300">
 								<p>
-									Com todo o tratamento feito falta apenas estipular uma regra para que o modelo possa ter como base que decisão tomar, para isso 
-									estipulamos uma regra de que variações com relação ao Ibovespa de até 2% seriam enquadradas como "Não Comprar" pois é uma variação pouco
-									significativa e variações acima ou abaixo disso seriam classificadas como "Comprar" e "Vender". Embora o modelo, não foque em avisar quando vender,
+									Após elaborada a base de dados, foi feito o tratamento dos valores vazios. Para isso
+									foram contados os valores vazios por coluna e considerado uma regra 
+									que a coluna com mais de 50 observações vazias seria eliminada da base. Essa etapa é importante porque valores vazios em grande quantidade podem ocasionar
+									inconsistências no modelo.
+								</p>
+								<p>
+									Com todo o tratamento feito, falta apenas estipular uma regra para que o modelo possa ter como base que decisão tomar, para isso 
+									arbitramos uma regra de que variações com relação ao Ibovespa de até 2% foram enquadradas como "Não Comprar" pois é uma variação pouco
+									significativa e acaba sendo um ruído ocasionando erros de decisão. Já variações acima ou abaixo disso foram classificadas como "Comprar" e "Vender". Embora o modelo, não foque em avisar quando vender,
 									essa classificação é importante para analisarmos os erros do modelo.
 								</p>
-								<p>
-									Após elaborada a base de dados, foi feito o tratamento dis valores vazios. Para isso
-									foram contados os valores vazios por coluna e considerado uma regra 
-									que a coluna com mais de 50 observações vazias seria eliminada da base.
-								</p>
+								
 								
 								<p><b>Análise exploratória</b><p>
 								
 								<p>
-									
+									Iniciamos a análise da base elaborada através da criação do histograma das decisões para que possamos observar a distribuição dos valores.
+									Feito isso, foi constatado valores muito próximos de 50% e que a classificação "Não comprar" apresentou baixo percentual, então essa classificação foi retirada
+									anexada a classificação "Vender" deixando, por coincidência, os valores distribuídos simetricamente como mostram os gráficos abaixo.
 								</p>
-								
-								<p><b>Parâmetros para o modelo</b><p>
+								<img src="histo" width="700" height="300">
+								<img src="histo" width="700" height="300">
 								<p>
-									O objetivo do modelo é informar quando comprar e não quando vender, porém o modelo
-									irá classificar em três categorias (compra vende não compra) porque isso vai impactar 
-									nos indicadores de precisão e recall para saber quando o modelo indica compra, mas na 
-									verdade seria venda.
+									Na tentativa de encontrar valores fortemente correlacionados, foi elaborado um gráfico que apresenta as correlações entre as colunas. No entanto, algumas
+									colunas apresentam alta dependência como é o caso das colunas Ativo Total x Ativo Circulante e Passivo Circulante (apenas dois exemplos para eu não me alongar).
+									Então foram eliminadas as colunas que apresentaram alta correlação e elaborado novamente o gráfico.
 								</p>
-								<p>
-									Também foi adicionado as cotações do Ibovespa para que fosse feita a comparação. 
-									E transformado tudo em um só dataframe.
-								</p>	
-								<img src="" width="500" height="500">
-								
-								<p><b>Análise Exploratória</b><p>
-								<p>
-										Após inserir a coluna de 'Decisão', foi plotado o histograma abaixo na tentativa de entender a distribuição das decisões.
-								</p>
-								<img src="histograma decisao" width="500" height="500">
+							
 								<p><b>Machine Learning</b><p>
 								<p>
 									Seleção de características
