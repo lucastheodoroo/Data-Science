@@ -170,33 +170,49 @@
 									colunas apresentam alta dependência como é o caso das colunas Ativo Total x Ativo Circulante e Passivo Circulante (apenas dois exemplos para eu não me alongar).
 									Então foram eliminadas as colunas que apresentaram alta correlação e elaborado novamente o gráfico.
 								</p>
-							
+								<img src="corr" width="700" height="300">
+								<img src="corr" width="700" height="300">
+								
 								<p><b>Machine Learning</b><p>
 								<p>
 									Seleção de características
 								</p>
 								<p>
-									Foram separadas muitas características então foram excluídas algumas na tentativa de otimizar
-									o modelo. Para isso foi elaborada uma árvore de decisão para elencar as 10 características 
-									mais importantes as quais estão elencadas abaixo.
+									Após eliminar as correlações ainda restaram muitas características, porém nem sempre ter muitas características é bom para o modelo.
+									Por isso foram selecionadas apenas as 10 mais importantes que foram selecionadas através de uma árvore de decisão.
+									Essas características estão classificadas na tabela a seguir
+									
+								</p>
+								<img src="corr" width="700" height="300">
+								
+								<p>
+									Com as características selecionadas, foi aplicado um método de pré-processamento visando a normalização dos dados e separado os dados em treino e teste,
+									após foi criado um modelo de puro chute (Dummy) para ser usado como referência para o modelo, ou seja, verificar se o modelo é melhor que puro chute.
+								</p>
+								
+								<p>
+									Dentre as métricas de precisão e recall, foi utilizado como principal a métrica de precisão e o recall ficando como secundário, uma vez que estamos
+									interessados no acerto das previsões com base na amostra e não no percentual do total das observações corretas.
+								</p>
+								
+								<p><b>Método utilizado</b><p>
+								<p>
+									Após tentar vários métodos o que apresentou melhor resultado foi o Random Forest e comparando com o modelo de puro chute o desempenho foi superior.
+								</p>
+								<img src="corr" width="700" height="300">
+								<p>
+									Com o modelo selecionado, foi feito o tunning do modelo que nada mais é do que ajustar alguns parâmetros na tentativa de melhorar o resultado.
 								</p>
 								<p>
-									Feito isso, partimos para o processo de normalização dos dados utilizando o StandarScaler do 
-									pacote de pré-processamento do skitlearn, a separação dos dados em treino e teste e a criação 
-									de um modelo de puro chute para efetuar a comparação. Após isso, foram testados vários modelos
-									e obteve-se melhor resultado com o modelo random forest e então foi realizado o tunning desse 
-									modelo na tentativa de obter um resultado melhor alterando os parâmetros do modelo.
-								</p>
-								<p>
-									Por fim, foi feito o teste nos dados reais e obtido o resultado superior ao Ibovespa
-									de aproximadamente 7%.
+									Por fim, foi feito o teste nos dados do último trimestre (dados de teste) de cada empresa para verificarmos a eficiência do modelo. Com isso foi
+									obtido o resultado superior ao Ibovespa em aproximadamente 6.8%.
 								</p>
 								<p><b>Conclusão</b><p>
 								<p>
-									Considerando o resultado obtido, o teste do modelo foi um sucesso obtendo um rendimento expressivo
-									considerando um trimestre e o mercado de ações. No entanto, seria necessário um teste em um período maior, mas
-									com o resultado positivo fica claro que é possível utilizar machine learning para operar no mercado financeiro.
-									Deixo na próxima seção uma opinião sobre o assunto e a aplicação do modelo.
+									Considerando o resultado obtido, o teste do modelo foi bem sucedido, já que obteve-se uma rentabilidade considerável acima do índice.
+									Dessa forma, fica claro que é possível a aplicação de um modelo de machine learning no auxílio para compra de ações com base em seus fundamentos.
+									Porém, apenas um teste com um horizonte temporal maior seria possível de confirmar a tese. Na próxíma seção deixo uma opinião sobre o assunto considerando
+									alguns aspectos qualitativos que não são levados em conta pelo modelo.
 								</p>
 								<p><b>Opinião</b><p>
 								<p>
